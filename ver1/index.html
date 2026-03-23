@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TIHOOO Studio — люксовая студия массажа</title>
+    <title>TIHO Studio — люксовая студия массажа</title>
     <meta name="description"
         content="TIHO Studio — эстетичная студия массажа с премиальной атмосферой, спокойным сервисом и удобной записью через WhatsApp и Telegram." />
 
@@ -45,9 +45,9 @@
 
             --radius-sm: 16px;
             --radius-md: 24px;
-            --radius-lg: 32px;
-            --radius-xl: 42px;
-            --radius-2xl: 54px;
+            --radius-lg: 28px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
 
             --container: 1240px;
             --header-h: 82px;
@@ -139,26 +139,6 @@
             background: radial-gradient(circle, rgba(220, 198, 177, 0.34), transparent 70%);
         }
 
-        .cursor-glow {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 280px;
-            pointer-events: none;
-            border-radius: 50%;
-            z-index: -1;
-            background: radial-gradient(circle, rgba(217, 191, 166, 0.18), transparent 65%);
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-            filter: blur(8px);
-        }
-
-        body.has-pointer .cursor-glow {
-            opacity: 1;
-        }
-
         /* ==========================================
        УТИЛИТЫ
        ========================================== */
@@ -191,8 +171,6 @@
             background: rgba(255, 255, 255, 0.55);
             border: 1px solid rgba(164, 125, 94, 0.14);
             box-shadow: var(--shadow-xs);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             margin-bottom: 18px;
         }
 
@@ -261,17 +239,15 @@
 
         .grid {
             display: grid;
-            gap: 18px;
+            gap: 24px;
         }
 
         .card {
             position: relative;
-            background: var(--paper);
-            border: 1px solid var(--line);
+            background: var(--surface-2);
+            border: 1px solid rgba(164, 125, 94, 0.08);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
             transition:
                 transform var(--transition),
                 box-shadow var(--transition),
@@ -281,11 +257,7 @@
         }
 
         .card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.20), transparent 35%);
-            pointer-events: none;
+            content: none;
         }
 
         .card:hover {
@@ -350,8 +322,8 @@
         }
 
         .btn-primary {
-            color: #241d18;
-            background: linear-gradient(135deg, #e2ccb6 0%, #caa487 100%);
+            color: #ffffff;
+            background: #4a3628;
             box-shadow: 0 14px 30px rgba(166, 126, 95, 0.24);
         }
 
@@ -384,6 +356,16 @@
             place-items: center;
             flex: 0 0 auto;
             font-size: 1rem;
+        }
+
+        .icon-svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .tag-list {
@@ -657,7 +639,7 @@
 
         .hero-layout {
             display: grid;
-            gap: 18px;
+            gap: 24px;
             align-items: stretch;
         }
 
@@ -665,10 +647,8 @@
             position: relative;
             padding: 28px 20px;
             border-radius: var(--radius-2xl);
-            background:
-                linear-gradient(160deg, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.55)),
-                radial-gradient(circle at 100% 0%, rgba(214, 190, 166, 0.24), transparent 26%);
-            border: 1px solid rgba(164, 125, 94, 0.12);
+            background: #f7f0e8;
+            border: 1px solid rgba(164, 125, 94, 0.08);
             box-shadow: var(--shadow-md);
             overflow: hidden;
             isolation: isolate;
@@ -710,7 +690,7 @@
         .hero-micro {
             margin-top: 24px;
             display: grid;
-            gap: 12px;
+            gap: 24px;
         }
 
         .hero-micro-item {
@@ -730,14 +710,14 @@
             flex: 0 0 auto;
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, rgba(214, 190, 166, 0.6), rgba(214, 190, 166, 0.18));
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.38);
-            font-size: 0.95rem;
+            background: rgba(214, 190, 166, 0.18);
+            border: 1px solid rgba(164, 125, 94, 0.16);
+            color: #6d5d52;
         }
 
         .hero-side {
             display: grid;
-            gap: 18px;
+            gap: 24px;
         }
 
         .hero-visual {
@@ -755,12 +735,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: scale(1.02);
-            transition: transform 1.4s ease;
-        }
-
-        .hero-visual:hover img {
-            transform: scale(1.08);
         }
 
         .hero-visual::after {
@@ -780,11 +754,9 @@
             bottom: 16px;
             padding: 16px;
             border-radius: 22px;
-            background: rgba(255, 251, 247, 0.72);
+            background: rgba(255, 251, 247, 0.92);
             border: 1px solid rgba(255, 255, 255, 0.42);
             box-shadow: 0 14px 26px rgba(37, 28, 22, 0.12);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         .hero-badge-title {
@@ -801,7 +773,7 @@
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
+            gap: 24px;
             margin-top: 18px;
         }
 
@@ -825,7 +797,7 @@
        ========================================== */
         .about-layout {
             display: grid;
-            gap: 18px;
+            gap: 24px;
         }
 
         .about-card {
@@ -834,7 +806,7 @@
 
         .about-points {
             display: grid;
-            gap: 12px;
+            gap: 24px;
             margin-top: 22px;
         }
 
@@ -860,7 +832,7 @@
 
         .about-editorial {
             display: grid;
-            gap: 18px;
+            gap: 24px;
         }
 
         .photo-card {
@@ -878,11 +850,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.1s ease;
-        }
-
-        .photo-card:hover img {
-            transform: scale(1.07);
         }
 
         .photo-card::after {
@@ -903,15 +870,13 @@
             z-index: 1;
             padding: 16px;
             border-radius: 22px;
-            background: rgba(255, 251, 247, 0.70);
+            background: rgba(255, 251, 247, 0.92);
             border: 1px solid rgba(255, 255, 255, 0.42);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         .editorial-grid {
             display: grid;
-            gap: 18px;
+            gap: 24px;
         }
 
         /* ==========================================
@@ -919,7 +884,7 @@
        ========================================== */
         .services-grid {
             display: grid;
-            gap: 16px;
+            gap: 24px;
         }
 
         .service-card {
@@ -934,7 +899,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .service-icon {
@@ -943,10 +908,9 @@
             border-radius: 18px;
             display: grid;
             place-items: center;
-            background:
-                linear-gradient(135deg, rgba(214, 190, 166, 0.72), rgba(214, 190, 166, 0.18));
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.42);
-            font-size: 1.08rem;
+            background: rgba(214, 190, 166, 0.2);
+            border: 1px solid rgba(164, 125, 94, 0.14);
+            color: #6d5d52;
             flex: 0 0 auto;
         }
 
@@ -992,7 +956,7 @@
        ========================================== */
         .gallery-layout {
             display: grid;
-            gap: 14px;
+            gap: 24px;
         }
 
         .gallery-tile {
@@ -1036,10 +1000,8 @@
             z-index: 1;
             padding: 14px 16px;
             border-radius: 20px;
-            background: rgba(255, 251, 247, 0.68);
+            background: rgba(255, 251, 247, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.42);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         .gallery-caption strong {
@@ -1053,7 +1015,7 @@
        ========================================== */
         .benefits-grid {
             display: grid;
-            gap: 16px;
+            gap: 24px;
         }
 
         .benefit-card {
@@ -1067,11 +1029,10 @@
             border-radius: 18px;
             display: grid;
             place-items: center;
-            background:
-                linear-gradient(135deg, rgba(214, 190, 166, 0.74), rgba(255, 255, 255, 0.30));
+            background: rgba(214, 190, 166, 0.2);
+            border: 1px solid rgba(164, 125, 94, 0.14);
             margin-bottom: 14px;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.42);
-            font-size: 1.12rem;
+            color: #6d5d52;
         }
 
         .benefit-card p {
@@ -1085,7 +1046,7 @@
         .process-wrap {
             position: relative;
             display: grid;
-            gap: 14px;
+            gap: 24px;
         }
 
         .process-line {
@@ -1095,7 +1056,7 @@
         .step-card {
             padding: 18px;
             display: flex;
-            gap: 16px;
+            gap: 24px;
             align-items: flex-start;
         }
 
@@ -1109,9 +1070,10 @@
             font-family: "Cormorant Garamond", Georgia, serif;
             font-size: 1.5rem;
             line-height: 1;
-            background: linear-gradient(135deg, #e3cfbc, #c9a183);
+            background: rgba(214, 190, 166, 0.25);
+            border: 1px solid rgba(164, 125, 94, 0.2);
             color: #2c221d;
-            box-shadow: 0 12px 26px rgba(166, 126, 95, 0.22);
+            box-shadow: none;
         }
 
         .step-card p {
@@ -1124,7 +1086,7 @@
        ========================================== */
         .reviews-grid {
             display: grid;
-            gap: 16px;
+            gap: 24px;
         }
 
         .review-card {
@@ -1181,96 +1143,26 @@
 
         .gift-layout {
             display: grid;
-            gap: 18px;
+            gap: 24px;
             align-items: center;
         }
 
         .gift-visual {
             position: relative;
             min-height: 300px;
-            border-radius: 34px;
+            border-radius: 24px;
             overflow: hidden;
-            background:
-                linear-gradient(135deg, #faf4ed 0%, #ead7c4 100%);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(164, 125, 94, 0.12);
+            background: #f2e6da;
+            border: 1px solid rgba(164, 125, 94, 0.16);
+            box-shadow: var(--shadow-md);
         }
 
-        .gift-visual::before {
-            content: "";
+        .gift-visual img {
             position: absolute;
-            width: 62%;
-            aspect-ratio: 1.58 / 1;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(-7deg);
-            border-radius: 30px;
-            background: linear-gradient(135deg, #fff9f3 0%, #e8d5c3 100%);
-            border: 1px solid rgba(164, 125, 94, 0.14);
-            box-shadow: 0 24px 40px rgba(91, 67, 50, 0.14);
-        }
-
-        .gift-ribbon-v,
-        .gift-ribbon-h,
-        .gift-bow,
-        .gift-bow::before,
-        .gift-bow::after {
-            position: absolute;
-            content: "";
-            border-radius: 999px;
-        }
-
-        .gift-ribbon-v {
-            width: 60px;
-            height: 72%;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(-7deg);
-            background: linear-gradient(180deg, #cfab8c, #b88f6f);
-            z-index: 1;
-            box-shadow: 0 10px 20px rgba(111, 84, 66, 0.14);
-        }
-
-        .gift-ribbon-h {
-            width: 72%;
-            height: 48px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(-7deg);
-            background: linear-gradient(90deg, #cfab8c, #b88f6f);
-            z-index: 1;
-            box-shadow: 0 10px 20px rgba(111, 84, 66, 0.14);
-        }
-
-        .gift-bow {
-            width: 56px;
-            height: 56px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #c79f80, #b78d6f);
-            z-index: 2;
-            box-shadow: 0 10px 20px rgba(111, 84, 66, 0.18);
-        }
-
-        .gift-bow::before,
-        .gift-bow::after {
-            width: 54px;
-            height: 26px;
-            top: 50%;
-            background: linear-gradient(135deg, #d8b89d, #bf9878);
-        }
-
-        .gift-bow::before {
-            right: 100%;
-            transform: translate(10px, -50%) rotate(-18deg);
-            border-radius: 999px 999px 999px 0;
-        }
-
-        .gift-bow::after {
-            left: 100%;
-            transform: translate(-10px, -50%) rotate(18deg);
-            border-radius: 999px 999px 0 999px;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .gift-points {
@@ -1372,7 +1264,7 @@
 
         .cta-layout {
             display: grid;
-            gap: 22px;
+            gap: 24px;
             align-items: center;
         }
 
@@ -1444,6 +1336,7 @@
 
             .hero-layout {
                 grid-template-columns: 1.12fr 0.88fr;
+                gap: 32px;
             }
 
             .hero-copy {
@@ -1453,19 +1346,23 @@
             .about-layout {
                 grid-template-columns: 1.02fr 0.98fr;
                 align-items: stretch;
+                gap: 32px;
             }
 
             .editorial-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 32px;
             }
 
             .services-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 32px;
             }
 
             .gallery-layout {
                 grid-template-columns: 1.2fr 0.8fr;
                 grid-template-rows: 320px 220px;
+                gap: 32px;
             }
 
             .gallery-layout .gallery-tile:nth-child(1) {
@@ -1474,22 +1371,27 @@
 
             .benefits-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 32px;
             }
 
             .process-wrap {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 32px;
             }
 
             .reviews-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 32px;
             }
 
             .gift-layout {
                 grid-template-columns: 1fr 1fr;
+                gap: 32px;
             }
 
             .cta-layout {
                 grid-template-columns: 1.15fr 0.85fr;
+                gap: 32px;
             }
 
             .footer-inner {
@@ -1559,10 +1461,9 @@
 
 <body>
     <!-- Декоративный фон -->
-    <div class="ambient" data-parallax="0.04" aria-hidden="true"></div>
-    <div class="ambient-2" data-parallax="0.07" aria-hidden="true"></div>
-    <div class="ambient-3" data-parallax="0.05" aria-hidden="true"></div>
-    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="ambient-2" aria-hidden="true"></div>
+    <div class="ambient-3" aria-hidden="true"></div>
 
     <!-- Шапка -->
     <header class="site-header">
@@ -1655,7 +1556,11 @@
 
                         <div class="hero-micro">
                             <div class="hero-micro-item">
-                                <div class="hero-micro-icon" aria-hidden="true">◌</div>
+                                <div class="hero-micro-icon" aria-hidden="true">
+                                    <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="6"></circle>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Пространство boutique-формата</strong><br />
                                     <span class="muted">чистая эстетика, мягкий свет, тишина и ощущение
@@ -1664,7 +1569,12 @@
                             </div>
 
                             <div class="hero-micro-item">
-                                <div class="hero-micro-icon" aria-hidden="true">⌁</div>
+                                <div class="hero-micro-icon" aria-hidden="true">
+                                    <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M3 9c2.5-3 5.5-3 8 0s5.5 3 8 0"></path>
+                                        <path d="M3 15c2.5-3 5.5-3 8 0s5.5 3 8 0"></path>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Сервис без спешки</strong><br />
                                     <span class="muted">деликатная коммуникация, понятная запись и внимание к вашему
@@ -1673,7 +1583,12 @@
                             </div>
 
                             <div class="hero-micro-item">
-                                <div class="hero-micro-icon" aria-hidden="true">✦</div>
+                                <div class="hero-micro-icon" aria-hidden="true">
+                                    <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z">
+                                        </path>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Уход, который ощущается как пауза</strong><br />
                                     <span class="muted">не просто процедура, а красивый сценарий восстановления среди
@@ -1820,7 +1735,11 @@
                 <div class="services-grid">
                     <article class="card service-card reveal">
                         <div class="service-top">
-                            <div class="service-icon" aria-hidden="true">☾</div>
+                            <div class="service-icon" aria-hidden="true">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M15 3a8.5 8.5 0 1 0 6 13.7A7.5 7.5 0 1 1 15 3z"></path>
+                                </svg>
+                            </div>
                             <span class="service-badge">60 / 90 минут</span>
                         </div>
                         <h3>Расслабляющий массаж</h3>
@@ -1837,7 +1756,12 @@
 
                     <article class="card service-card reveal">
                         <div class="service-top">
-                            <div class="service-icon" aria-hidden="true">⌁</div>
+                            <div class="service-icon" aria-hidden="true">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M3 9c2.5-3 5.5-3 8 0s5.5 3 8 0"></path>
+                                    <path d="M3 15c2.5-3 5.5-3 8 0s5.5 3 8 0"></path>
+                                </svg>
+                            </div>
                             <span class="service-badge">30 / 45 / 60 минут</span>
                         </div>
                         <h3>Массаж спины и шейно-воротниковой зоны</h3>
@@ -1854,7 +1778,11 @@
 
                     <article class="card service-card reveal">
                         <div class="service-top">
-                            <div class="service-icon" aria-hidden="true">△</div>
+                            <div class="service-icon" aria-hidden="true">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 5l7 12H5L12 5z"></path>
+                                </svg>
+                            </div>
                             <span class="service-badge">60 / 90 минут</span>
                         </div>
                         <h3>Спортивный массаж</h3>
@@ -1871,7 +1799,11 @@
 
                     <article class="card service-card reveal">
                         <div class="service-top">
-                            <div class="service-icon" aria-hidden="true">◌</div>
+                            <div class="service-icon" aria-hidden="true">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                </svg>
+                            </div>
                             <span class="service-badge">60 минут</span>
                         </div>
                         <h3>Лимфодренажный массаж</h3>
@@ -1888,7 +1820,12 @@
 
                     <article class="card service-card reveal">
                         <div class="service-top">
-                            <div class="service-icon" aria-hidden="true">✦</div>
+                            <div class="service-icon" aria-hidden="true">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z">
+                                    </path>
+                                </svg>
+                            </div>
                             <span class="service-badge">75 / 90 минут</span>
                         </div>
                         <h3>SPA-ритуалы</h3>
@@ -1905,7 +1842,19 @@
 
                     <article class="card service-card reveal">
                         <div class="service-top">
-                            <div class="service-icon" aria-hidden="true">❀</div>
+                            <div class="service-icon" aria-hidden="true">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="2.2"></circle>
+                                    <path d="M12 6.5V4"></path>
+                                    <path d="M12 20v-2.5"></path>
+                                    <path d="M17.5 12H20"></path>
+                                    <path d="M4 12h2.5"></path>
+                                    <path d="M15.9 8.1l1.8-1.8"></path>
+                                    <path d="M6.3 17.7l1.8-1.8"></path>
+                                    <path d="M8.1 8.1L6.3 6.3"></path>
+                                    <path d="M17.7 17.7l-1.8-1.8"></path>
+                                </svg>
+                            </div>
                             <span class="service-badge">в электронном и печатном формате</span>
                         </div>
                         <h3>Подарочные сертификаты</h3>
@@ -1980,41 +1929,69 @@
 
                 <div class="benefits-grid">
                     <article class="card benefit-card reveal">
-                        <div class="benefit-icon" aria-hidden="true">◎</div>
+                        <div class="benefit-icon" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="7"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
                         <h3>Индивидуальный подход</h3>
                         <p>Подбираем формат под ваш запрос, желаемую интенсивность и то, как вам комфортно именно
                             сегодня.</p>
                     </article>
 
                     <article class="card benefit-card reveal">
-                        <div class="benefit-icon" aria-hidden="true">✦</div>
+                        <div class="benefit-icon" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"></path>
+                            </svg>
+                        </div>
                         <h3>Опытные мастера</h3>
                         <p>Важны не только техника и аккуратность, но и умение чувствовать ритм гостя и уважать его
                             границы.</p>
                     </article>
 
                     <article class="card benefit-card reveal">
-                        <div class="benefit-icon" aria-hidden="true">☰</div>
+                        <div class="benefit-icon" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 7h16"></path>
+                                <path d="M7 12h13"></path>
+                                <path d="M4 17h16"></path>
+                            </svg>
+                        </div>
                         <h3>Эстетичное boutique-пространство</h3>
                         <p>Минималистичный интерьер, чистота и визуальный покой создают ощущение премиальной простоты.
                         </p>
                     </article>
 
                     <article class="card benefit-card reveal">
-                        <div class="benefit-icon" aria-hidden="true">⌁</div>
+                        <div class="benefit-icon" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 9c2.5-3 5.5-3 8 0s5.5 3 8 0"></path>
+                                <path d="M3 15c2.5-3 5.5-3 8 0s5.5 3 8 0"></path>
+                            </svg>
+                        </div>
                         <h3>Удобная онлайн-запись</h3>
                         <p>Связаться можно в WhatsApp или Telegram — быстро, спокойно и без лишних звонков.</p>
                     </article>
 
                     <article class="card benefit-card reveal">
-                        <div class="benefit-icon" aria-hidden="true">◌</div>
+                        <div class="benefit-icon" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="6"></circle>
+                            </svg>
+                        </div>
                         <h3>Комфортная атмосфера без спешки</h3>
                         <p>Мы стараемся, чтобы визит воспринимался не как задача в графике, а как мягкая пауза среди
                             дел.</p>
                     </article>
 
                     <article class="card benefit-card reveal">
-                        <div class="benefit-icon" aria-hidden="true">✓</div>
+                        <div class="benefit-icon" aria-hidden="true">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 12.5l4 4L18 8.5"></path>
+                            </svg>
+                        </div>
                         <h3>Чистота и сервис высокого уровня</h3>
                         <p>Аккуратность, тактичность и внимание к деталям — базовые ценности студии и нашего ежедневного
                             сервиса.</p>
@@ -2165,9 +2142,8 @@
                         </div>
 
                         <div class="gift-visual" aria-hidden="true">
-                            <div class="gift-ribbon-v"></div>
-                            <div class="gift-ribbon-h"></div>
-                            <div class="gift-bow"></div>
+                            <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                alt="Плейсхолдер изображения подарочного сертификата в интерьере" />
                         </div>
                     </div>
                 </div>
@@ -2450,59 +2426,6 @@
         });
 
         revealItems.forEach((item) => revealObserver.observe(item));
-
-        /* ==========================================
-           Cursor glow
-           ========================================== */
-        const glow = document.querySelector(".cursor-glow");
-
-        window.addEventListener("pointermove", (e) => {
-            document.body.classList.add("has-pointer");
-            if (glow) {
-                glow.style.left = `${e.clientX}px`;
-                glow.style.top = `${e.clientY}px`;
-            }
-        });
-
-        /* ==========================================
-           Soft parallax for decorative ambient elements
-           ========================================== */
-        const parallaxItems = document.querySelectorAll("[data-parallax]");
-
-        window.addEventListener("mousemove", (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5);
-            const y = (e.clientY / window.innerHeight - 0.5);
-
-            parallaxItems.forEach((item) => {
-                const power = parseFloat(item.dataset.parallax || "0.05");
-                const moveX = x * 60 * power * 10;
-                const moveY = y * 60 * power * 10;
-                item.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
-        });
-
-        /* ==========================================
-           Tilt hover effect for cards on desktop
-           ========================================== */
-        const tiltItems = document.querySelectorAll(".card, .gallery-tile, .hero-visual");
-
-        tiltItems.forEach((item) => {
-            item.addEventListener("mousemove", (e) => {
-                if (window.innerWidth < 1040) return;
-
-                const rect = item.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const rotateY = ((x / rect.width) - 0.5) * 5;
-                const rotateX = ((y / rect.height) - 0.5) * -5;
-
-                item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
-            });
-
-            item.addEventListener("mouseleave", () => {
-                item.style.transform = "";
-            });
-        });
     </script>
 </body>
 
